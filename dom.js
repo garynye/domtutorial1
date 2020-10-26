@@ -89,3 +89,130 @@
 //   even[i].style.backgroundColor = '#ccc';
 // }
 
+
+
+//traversing the dom
+
+var itemListvar = document.querySelector('#items')
+let itemListlet = document.querySelector('#items')
+// lets look at parent node prop
+
+/* console.log(itemListvar.parentNode)
+console.log(itemListlet.parentNode)
+
+itemListlet.parentNode.style.backgroundColor = 'lightgrey'
+
+console.log(itemListvar.parentNode)
+console.log(itemListvar.parentNode.parentNode.parentNode) */
+
+
+/* itemListlet.parentNode.style.backgroundColor = 'lightgrey'
+//parent element also works
+console.log(itemListvar.parentNode)
+console.log(itemListvar.parentNode.parentNode.parentNode)  */
+
+/* console.log(itemListlet.children)
+console.log(itemListlet.children[2])
+itemListlet.children[2].style.background = 'yellow'
+
+//first child - don't use first childe, use first element child or it grabs the strange text inbetween
+//can also use last element child
+
+console.log(itemListlet.firstElementChild)
+ */
+/* itemListlet.firstElementChild.textContent = 'rename1'
+
+
+console.log(itemListlet.previousElementSibling) */
+
+//create element
+
+// create a div
+/* 
+let newDiv = document.createElement('div')
+
+//add class
+newDiv.className = 'hello'
+
+//add id
+//newDiv.id = 'hello1'
+
+//add attribute
+
+newDiv.setAttribute('title', 'Hello Div')
+newDiv.setAttribute('id', 'hello1')
+
+//create text node
+
+let newDivText = document.createTextNode('Hello World text node')
+
+//add text to div
+newDiv.appendChild(newDivText)
+
+let con = document.querySelector('.container')
+let h1 = document.querySelector('h1')
+
+console.log(newDiv)
+
+// we are inserting into the container - we are inserting the newdiv before the header h1 in the container
+
+con.insertBefore(newDiv, h1) */
+
+
+//EVENT NOTES
+
+// let btn = document.querySelector('#button').addEventListener('click', buttonClick)
+
+// function buttonClick(e) {
+
+//     // console.log('123')
+//     // document.querySelector('h1').textContent = "test"
+//     // console.log(e)
+// let output = document.createElement('div')
+// let outputtext = document.createTextNode(e.target)
+// output.appendChild(outputtext)
+
+// document.querySelector('#main').insertBefore(output,document.querySelector('#button'))
+//     // console.log(outputtext)
+
+//     // console.log(e.clientX)
+//     // console.log(e.offsetX)
+
+// }
+
+
+
+let btn = document.querySelector('#button')
+let box = document.querySelector('#box')
+
+let itemInput = document.querySelector('input[type="text"]')
+let form = document.querySelector('form')
+var selectItem = document.querySelector('#sel')
+
+//itemInput.addEventListener('keydown', runEvent)
+itemInput.addEventListener('focus', runEvent)
+selectItem.addEventListener('change', runEvent)
+
+form.addEventListener('submit', runEvent)
+
+
+// btn.addEventListener('click', runEvent)
+// btn.addEventListener('dblclick', runEvent)
+// btn.addEventListener('mousedown', runEvent)
+
+// box.addEventListener('mouseenter', runEvent)
+// box.addEventListener('mouseleave', runEvent)
+// box.addEventListener('mouseover', runEvent)
+// box.addEventListener('mouseout', runEvent)
+
+// box.addEventListener('mousemove', runEvent)
+
+function runEvent(e) {
+    e.preventDefault();
+    
+    console.log('Event type' + e.type)
+    console.log(e.target.value)
+    // document.querySelector('#box').innerHTML = '<h3>mouseX: ' +e.offsetX +'</h3><h3>mouseY: ' + e.offsetY +'</h3>'
+    // box.style.backgroundColor = 'rgb(' +e.offsetX+','+ e.offsetY +',40)'
+    box.innerText = e.target.value
+}
